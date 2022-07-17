@@ -8,6 +8,7 @@ import type { Question } from "types/firebase";
 
 import Answers from "components/AnswerList";
 import Button from "components/Buttom";
+import Loading from "components/Loading";
 import NotFound from "components/NotFound";
 import SubmitButton from "components/SubmitButton";
 import TextArea from "components/TextArea";
@@ -109,7 +110,7 @@ const Question: NextPage = () => {
           <section>
             <h2>質問</h2>
             <div className="w-full rounded-3xl border-2 border-main-color bg-light-gray py-12 text-center">
-              {question?.question}
+              {question ? question.question : <Loading />}
             </div>
 
             <h3 className="text-center">質問のリンクを共有しよう！</h3>
