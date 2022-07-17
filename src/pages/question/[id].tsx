@@ -79,7 +79,7 @@ const Question: NextPage = () => {
 
           <meta
             property="og:url"
-            content={process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN}
+            content={"https://" + process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN}
           />
           <meta property="og:type" content="website" />
           <meta
@@ -96,14 +96,14 @@ const Question: NextPage = () => {
           />
           <meta
             property="og:description"
-            content="匿名で回答を送れちゃう！某質問系サービスのパクリサービスです！質問「」"
+            content={`匿名で回答を送れちゃう！某質問系サービスのパクリサービスです！質問「${question?.question}」`}
           />
-          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:card" content="summary_large_image" />
 
           <title>回答箱 | 質問「{question?.question}」</title>
           <meta
             name="description"
-            content="匿名で回答を送れちゃう！某質問系サービスのパクリサービスです！"
+            content={`匿名で回答を送れちゃう！某質問系サービスのパクリサービスです！質問「${question?.question}」`}
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>

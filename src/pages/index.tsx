@@ -50,7 +50,7 @@ const Home: NextPage = () => {
           property="og:description"
           content="匿名で回答を送れちゃう！某質問系サービスのパクリサービスです！"
         />
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
 
         <title>回答箱</title>
         <meta
