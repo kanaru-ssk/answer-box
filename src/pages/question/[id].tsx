@@ -82,15 +82,21 @@ const Question: NextPage = () => {
             content={process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN}
           />
           <meta property="og:type" content="website" />
-          <meta property="og:image" content="/img/ogp.png" />
-          <meta property="og:title" content={"回答箱"} />
+          <meta
+            property="og:image"
+            content={process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN + "/img/ogp.png"}
+          />
+          <meta
+            property="og:title"
+            content={`回答箱 | 質問「${question?.question}」`}
+          />
           <meta
             property="og:description"
-            content="匿名で回答を送れちゃう！某質問系サービスのパクリサービスです！"
+            content="匿名で回答を送れちゃう！某質問系サービスのパクリサービスです！質問「」"
           />
           <meta name="twitter:card" content="summary" />
 
-          <title>回答箱</title>
+          <title>回答箱 | 質問「{question?.question}」</title>
           <meta
             name="description"
             content="匿名で回答を送れちゃう！某質問系サービスのパクリサービスです！"
