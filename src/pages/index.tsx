@@ -14,7 +14,6 @@ const Home: NextPage = () => {
   const router = useRouter();
   const user = useAuth();
   const [newQuestion, setNewQuestion] = useState<string>("");
-  const [questionPath, setQuestionPath] = useState<string | null>(null);
 
   const onSubmitHundler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
