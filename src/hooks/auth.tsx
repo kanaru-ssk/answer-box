@@ -2,6 +2,7 @@
 
 // react取得
 import { createContext, useContext, useState, useEffect } from "react";
+
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import { User } from "types/firebase";
