@@ -39,7 +39,11 @@ const Home: NextPage = () => {
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content={process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN + "/img/ogp.png"}
+          content={
+            "https://" +
+            process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN +
+            "/img/ogp.png"
+          }
         />
         <meta property="og:title" content={"回答箱"} />
         <meta
