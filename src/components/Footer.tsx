@@ -1,8 +1,11 @@
 const Footer = () => {
   return (
-    <footer className="flex h-12 items-center justify-center text-main-color">
-      powered by Kanaru
-    </footer>
+    <>
+      <div className="h-12"></div>
+      <footer className="fixed bottom-0 flex h-12 w-full items-center justify-center border-t border-gray bg-white text-main-color">
+        powered by Kanaru
+      </footer>
+    </>
   );
 };
 

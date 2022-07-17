@@ -3,7 +3,7 @@ import Link from "next/link";
 const Header = () => {
   return (
     <>
-      <header className="fixed z-20 flex h-12 w-full items-center bg-white pl-4 md:h-20">
+      <header className="fixed z-20 flex h-12 w-full items-center border-b border-gray bg-white pl-4 md:h-20">
         <Link href="/">
           <a title="go to top page">
             <svg width="47" height="16" fill="black">
