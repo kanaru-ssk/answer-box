@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply box-border font-sans font-light leading-7;
+  }
+  main {
+    @apply mx-auto max-w-3xl px-4 pb-12;
+  }
+  section {
+    @apply my-12;
+  }
+  h2 {
+    @apply m-4 text-xl;
+  }
+}

@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+		match /questions/{questionId} {
+			function isAuthenticated() {
+    	  return request.auth != null;
+      }
+			allow read, write: if isAuthenticated();
+			match /answers/{answerId} {
+				allow read, write: if isAuthenticated();
+			}
+		}
+  }
+}
