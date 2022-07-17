@@ -45,7 +45,7 @@ const Home: NextPage = () => {
             "/img/ogp.png"
           }
         />
-        <meta property="og:title" content={"回答箱"} />
+        <meta property="og:title" content="回答箱" />
         <meta
           property="og:description"
           content="匿名で回答を送れちゃう！某質問系サービスのパクリサービスです！"

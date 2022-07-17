@@ -90,20 +90,17 @@ const Question: NextPage = () => {
               "/img/ogp.png"
             }
           />
-          <meta
-            property="og:title"
-            content={`回答箱 | 質問「${question?.question}」`}
-          />
+          <meta property="og:title" content="回答箱" />
           <meta
             property="og:description"
-            content={`匿名で回答を送れちゃう！某質問系サービスのパクリサービスです！質問「${question?.question}」`}
+            content="匿名で回答を送れちゃう！某質問系サービスのパクリサービスです！"
           />
           <meta name="twitter:card" content="summary_large_image" />
 
-          <title>回答箱 | 質問「{question?.question}」</title>
+          <title>回答箱</title>
           <meta
             name="description"
-            content={`匿名で回答を送れちゃう！某質問系サービスのパクリサービスです！質問「${question?.question}」`}
+            content="匿名で回答を送れちゃう！某質問系サービスのパクリサービスです！質問"
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>
@@ -139,7 +136,7 @@ const Question: NextPage = () => {
                 value={newAnswer}
                 onChange={setNewAnswer}
               />
-              <SubmitButton text="回答作成" />
+              <SubmitButton text="回答する" />
             </form>
           </section>
 
