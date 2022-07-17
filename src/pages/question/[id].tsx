@@ -40,6 +40,24 @@ const Question: NextPage = () => {
   return (
     <>
       <Head>
+        <link
+          rel="canonical"
+          href={process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN + "/question/" + id}
+        />
+
+        <meta
+          property="og:url"
+          content={process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN}
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/img/ogp.webp" />
+        <meta property="og:title" content={"回答箱"} />
+        <meta
+          property="og:description"
+          content="匿名で回答を送れちゃう！某質問系サービスのパクリサービスです！"
+        />
+        <meta name="twitter:card" content="summary" />
+
         <title>回答箱</title>
         <meta
           name="description"
