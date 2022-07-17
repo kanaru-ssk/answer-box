@@ -1,34 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 回答箱
 
-## Getting Started
+![screenshot](public/img/screenshot.png)
 
-First, run the development server:
+## URL
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+[https://answer-box.vercel.app](https://answer-box.vercel.app)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Description
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+質問を作成して匿名回答を募集できるサービスです。
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## How To Use
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### 質問者
 
-## Learn More
+1. 質問を入力しましょう。
+2. 質問作成ボタンを押下
+3. リンクコピーボタン、Tweet ボタンで回答画面のリンクを共有
 
-To learn more about Next.js, take a look at the following resources:
+### 回答者
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. 共有されたリンクにアクセス
+2. 回答を入力
+3. 回答するボタンを押下して回答を匿名送信
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Site Map
 
-## Deploy on Vercel
+- /
+  - / question / [question_id]
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Technology used
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Firebase
+- NextJS
+- TypeScript
+- TailwindCSS
