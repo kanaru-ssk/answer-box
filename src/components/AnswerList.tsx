@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import InfiniteScroll from "react-infinite-scroller";
 
 import AnswerItem from "./AnswerItem";
+import Loading from "./Loading";
 
 import { getAnswers, getOldestAnswer, getRealTimeAnswers } from "libs/answer";
 import { Answer } from "types/firebase";
@@ -49,7 +50,7 @@ const AnswerList = () => {
     <InfiniteScroll
       loadMore={onMoreLoad}
       hasMore={hasMore}
-      loader={<div key={0}>loading...</div>}
+      loader={<Loading />}
     >
       <ul>
         {newAnswers.map((answer) => {
