@@ -37,7 +37,7 @@ const Home: NextPage = () => {
           content={process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN}
         />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/img/ogp.webp" />
+        <meta property="og:image" content="/img/ogp.png" />
         <meta property="og:title" content={"回答箱"} />
         <meta
           property="og:description"
