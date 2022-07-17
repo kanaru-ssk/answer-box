@@ -1,6 +1,5 @@
 // firebase初期化
 
-// import { getAnalytics } from "firebase/analytics";
 import { initializeApp } from "firebase/app";
 import { initializeFirestore } from "firebase/firestore";
 
@@ -18,6 +17,5 @@ const config = {
 // firebase初期化
 export const initFirebase = (): void => {
   const app = initializeApp(config);
-  // getAnalytics(app);
   initializeFirestore(app, { ignoreUndefinedProperties: true });
 };
