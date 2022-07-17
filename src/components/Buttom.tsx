@@ -1,6 +1,6 @@
 type Props = {
   text: string;
-  color: "gray" | "twitter-color";
+  color: "gray" | "twitter-color" | "main-color";
   onClick: (e: any) => void;
 };
 

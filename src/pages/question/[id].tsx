@@ -147,6 +147,17 @@ const Question: NextPage = () => {
             <h2>回答一覧</h2>
             <Answers />
           </section>
+
+          <section className="text-center">
+            <p className="pb-4">質問を作成して匿名の回答を募集しましょう!</p>
+            <Button
+              text="質問を作成する"
+              color="main-color"
+              onClick={() => {
+                router.push("/");
+              }}
+            />
+          </section>
         </main>
       </>
     );
