@@ -27,23 +27,13 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <link
-          rel="canonical"
-          href={process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN}
-        />
+        <link rel="canonical" href={process.env.NEXT_PUBLIC_URL} />
 
-        <meta
-          property="og:url"
-          content={process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN}
-        />
+        <meta property="og:url" content={process.env.NEXT_PUBLIC_URL} />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content={
-            "https://" +
-            process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN +
-            "/img/ogp.png"
-          }
+          content={process.env.NEXT_PUBLIC_URL + "/img/ogp.png"}
         />
         <meta property="og:title" content="回答箱" />
         <meta
