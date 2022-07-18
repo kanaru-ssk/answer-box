@@ -4,7 +4,7 @@
 
 ## URL
 
-[https://answer-box.vercel.app](https://answer-box.vercel.app)
+[https://answer-box.kanaru.jp](https://answer-box.kanaru.jp)
 
 ## Description
 
