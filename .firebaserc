@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "answer-box-001"
+    "prd": "answer-box-001",
+    "dev": "answer-box-dev"
   }
 }
