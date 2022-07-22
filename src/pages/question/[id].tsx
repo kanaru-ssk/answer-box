@@ -29,7 +29,6 @@ const Question = ({ questionSsr }: Props) => {
   const router = useRouter();
   const { id } = router.query;
   const [question, setQuestion] = useState<Question | null>(null);
-  const [newAnswer, setNewAnswer] = useState<string>("");
   const [isCopy, setIsCopy] = useState<boolean>(false);
   const [isNotFound, setIsNotFound] = useState<boolean>(false);
 
@@ -74,7 +73,7 @@ const Question = ({ questionSsr }: Props) => {
       <Head>
         <link
           rel="canonical"
-          href={process.env.NEXT_PUBLIC_URL + "/question/" + id}
+          href={process.env.NEXT_PUBLIC_URL + "/question/" + questionSsr?.docId}
         />
 
         <meta property="og:url" content={process.env.NEXT_PUBLIC_URL} />
@@ -124,8 +123,6 @@ const Question = ({ questionSsr }: Props) => {
           )}
         </section>
 
-        {!isNotFound && <AnswerForm question={question} />}
-
         {!isNotFound && (
           <section>
             <h2>回答一覧</h2>
@@ -144,6 +141,8 @@ const Question = ({ questionSsr }: Props) => {
           />
         </section>
       </main>
+
+      {!isNotFound && <AnswerForm question={question} />}
     </>
   );
 };

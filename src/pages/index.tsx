@@ -5,9 +5,8 @@ import { useRouter } from "next/router";
 
 import type { NextPage } from "next";
 
-import ButtonSubmit from "components/ButtonSubmit";
 import Footer from "components/Footer";
-import TextArea from "components/TextArea";
+import Loading from "components/Loading";
 import { useAuth } from "hooks/auth";
 import { createQuestion } from "libs/question";
 
@@ -56,13 +55,27 @@ const Home: NextPage = () => {
       <main>
         <p className="py-4">質問を作成しよう!</p>
         <form onSubmit={onSubmitHundler}>
-          <TextArea
+          <textarea
             name="question"
             placeholder="質問を入力して下さい。"
             value={newQuestion}
-            onChange={setNewQuestion}
-          />
-          <ButtonSubmit text="質問作成" isLoading={isCreating} />
+            onChange={(e) => setNewQuestion(e.target.value)}
+            className="w-full resize-none rounded-3xl border-2 border-gray py-12 text-center"
+          ></textarea>
+          <div className="py-4 text-center">
+            {isCreating ? (
+              <button className="w-40 rounded-full bg-sub-color py-0.5">
+                <Loading />
+              </button>
+            ) : (
+              <button
+                type="submit"
+                className="w-40 rounded-full bg-main-color py-3 font-bold text-white"
+              >
+                質問作成
+              </button>
+            )}
+          </div>
         </form>
       </main>
 

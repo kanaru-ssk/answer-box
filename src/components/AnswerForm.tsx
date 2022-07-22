@@ -49,7 +49,6 @@ const AnswerForm = ({ question }: Props) => {
         </div>
         <textarea
           name="answer"
-          id="answer"
           placeholder="回答を入力してください。"
           value={newAnswer}
           onChange={onChangeHundler}
