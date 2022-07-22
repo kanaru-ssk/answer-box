@@ -20,6 +20,15 @@ type Props = {
 };
 
 const Question = ({ questionSsr }: Props) => {
+  const title = questionSsr?.question
+    ? "回答箱 | 「" + questionSsr.question + "」"
+    : "回答箱";
+  const description = questionSsr?.question
+    ? "質問を作成して匿名で回答を募集しよう! 質問 : 「" +
+      questionSsr.question +
+      "」"
+    : "質問を作成して匿名で回答を募集しよう!";
+
   const user = useAuth();
   const router = useRouter();
   // パスパラメータから値を取得
@@ -87,37 +96,12 @@ const Question = ({ questionSsr }: Props) => {
           property="og:image"
           content={process.env.NEXT_PUBLIC_URL + "/img/ogp.png"}
         />
-        <meta
-          property="og:title"
-          content={
-            question?.question
-              ? "回答箱 | 「" + question?.question + "」"
-              : "回答箱"
-          }
-        />
-        <meta
-          property="og:description"
-          content={
-            "質問を作成して匿名で回答を募集しよう!" + question?.question
-              ? " 質問 : 「" + question?.question + "」"
-              : ""
-          }
-        />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
         <meta name="twitter:card" content="summary_large_image" />
 
-        <title>
-          {question?.question
-            ? "回答箱 | 「" + question?.question + "」"
-            : "回答箱"}
-        </title>
-        <meta
-          name="description"
-          content={
-            "質問を作成して匿名で回答を募集しよう!" + question?.question
-              ? " 質問 : 「" + question?.question + "」"
-              : ""
-          }
-        />
+        <title>{title}</title>
+        <meta name="description" content={description} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
