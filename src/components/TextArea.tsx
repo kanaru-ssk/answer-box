@@ -13,7 +13,6 @@ const TextArea = ({ name, value, placeholder, onChange }: Props) => {
       placeholder={placeholder}
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      style={{ height: "auto" }}
       className="w-full resize-none rounded-3xl border-2 border-gray py-12 text-center"
     ></textarea>
   );

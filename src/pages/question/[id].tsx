@@ -6,13 +6,10 @@ import { useRouter } from "next/router";
 import type { GetServerSideProps } from "next";
 import type { Question } from "types/firebase";
 
+import AnswerForm from "components/AnswerForm";
 import Answers from "components/AnswerList";
 import Button from "components/Buttom";
-import ButtonSubmit from "components/ButtonSubmit";
 import Loading from "components/Loading";
-import TextArea from "components/TextArea";
-import { useAuth } from "hooks/auth";
-import { createAnswer } from "libs/answer";
 import { getQuestion } from "libs/question";
 
 type Props = {
@@ -29,7 +26,6 @@ const Question = ({ questionSsr }: Props) => {
       "」"
     : "質問を作成して匿名で回答を募集しよう!";
 
-  const user = useAuth();
   const router = useRouter();
   const { id } = router.query;
   const [question, setQuestion] = useState<Question | null>(null);
@@ -50,14 +46,6 @@ const Question = ({ questionSsr }: Props) => {
       setQuestion(questionSsr);
     }
   }, [id, questionSsr]);
-
-  const onSubmitHundler = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (user && newAnswer && question) {
-      createAnswer(question.docId, newAnswer);
-      setNewAnswer("");
-    }
-  };
 
   const shareOnTwitter = async () => {
     const hashtag = "回答箱";
@@ -107,7 +95,7 @@ const Question = ({ questionSsr }: Props) => {
       <main className="px-4">
         <section>
           <h2>質問</h2>
-          <div className="w-full rounded-3xl border-2 border-main-color bg-light-gray py-12 text-center">
+          <div className="w-full whitespace-pre-wrap rounded-3xl border-2 border-main-color bg-light-gray py-12 text-center">
             {isNotFound ? (
               <span className="text-gray">質問が見つかりませんでした。</span>
             ) : question ? (
@@ -136,20 +124,7 @@ const Question = ({ questionSsr }: Props) => {
           )}
         </section>
 
-        {!isNotFound && (
-          <section>
-            <h2>匿名で回答する</h2>
-            <form onSubmit={onSubmitHundler}>
-              <TextArea
-                name="answer"
-                placeholder="回答を入力してください。"
-                value={newAnswer}
-                onChange={setNewAnswer}
-              />
-              <ButtonSubmit text="回答する" />
-            </form>
-          </section>
-        )}
+        {!isNotFound && <AnswerForm question={question} />}
 
         {!isNotFound && (
           <section>
