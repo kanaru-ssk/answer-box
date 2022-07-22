@@ -6,10 +6,10 @@ import { useRouter } from "next/router";
 import type { GetServerSideProps } from "next";
 import type { Question } from "types/firebase";
 
-import AnswerForm from "components/AnswerForm";
-import Answers from "components/AnswerList";
-import Button from "components/Buttom";
-import Loading from "components/Loading";
+import Loading from "components/common/Loading";
+import AnswerForm from "components/question/AnswerForm";
+import Answers from "components/question/AnswerList";
+import Button from "components/question/Buttom";
 import { getQuestion } from "libs/question";
 
 type Props = {
@@ -94,7 +94,7 @@ const Question = ({ questionSsr }: Props) => {
       <main className="px-4">
         <section>
           <h2>質問</h2>
-          <div className="w-full whitespace-pre-wrap rounded-3xl border-2 border-main-color bg-light-gray py-12 text-center">
+          <div className="w-full overflow-hidden whitespace-pre-wrap break-all rounded-3xl border-2 border-main-color bg-light-gray px-5 py-12 text-center leading-5">
             {isNotFound ? (
               <span className="text-gray">質問が見つかりませんでした。</span>
             ) : question ? (

@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import type { NextPage } from "next";
 
 import Footer from "components/Footer";
-import Loading from "components/Loading";
+import Loading from "components/common/Loading";
 import { useAuth } from "hooks/auth";
 import { createQuestion } from "libs/question";
 
@@ -55,13 +55,21 @@ const Home: NextPage = () => {
       <main>
         <p className="py-4">質問を作成しよう!</p>
         <form onSubmit={onSubmitHundler}>
-          <textarea
-            name="question"
-            placeholder="質問を入力して下さい。"
-            value={newQuestion}
-            onChange={(e) => setNewQuestion(e.target.value)}
-            className="w-full resize-none rounded-3xl border-2 border-gray py-12 text-center"
-          ></textarea>
+          <div className="relative flex-1">
+            <div
+              className="invisible min-h-[48px] overflow-hidden whitespace-pre-wrap break-all border-2 px-5 py-12 leading-5"
+              aria-hidden="true"
+            >
+              {newQuestion + "\u200b"}
+            </div>
+            <textarea
+              name="answer"
+              placeholder="質問を入力して下さい。"
+              value={newQuestion}
+              onChange={(e) => setNewQuestion(e.target.value)}
+              className="absolute top-0 h-full w-full resize-none overflow-visible rounded-3xl border-2 border-gray px-5 py-12 leading-5"
+            ></textarea>
+          </div>
           <div className="py-4 text-center">
             {isCreating ? (
               <button className="w-40 rounded-full bg-sub-color py-0.5">

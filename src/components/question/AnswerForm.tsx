@@ -37,12 +37,11 @@ const AnswerForm = ({ question }: Props) => {
   return (
     <form
       onSubmit={onSubmitHundler}
-      className="fixed bottom-0 left-0 flex w-full items-center border-t border-gray bg-white px-4 py-2"
+      className="fixed bottom-0 left-0 flex w-full items-center bg-white px-4 py-2"
     >
       <div className="relative flex-1">
         <div
-          id="dummy"
-          className="max-h-[116px] min-h-[48px] overflow-hidden whitespace-pre-wrap px-5 py-3 leading-5"
+          className="invisible max-h-[116px] min-h-[48px] overflow-hidden whitespace-pre-wrap break-all border-2 px-5 py-3 leading-5"
           aria-hidden="true"
         >
           {newAnswer + "\u200b"}

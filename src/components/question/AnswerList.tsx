@@ -5,8 +5,8 @@ import { useRouter } from "next/router";
 import InfiniteScroll from "react-infinite-scroller";
 
 import AnswerItem from "./AnswerItem";
-import Loading from "./Loading";
 
+import Loading from "components/common/Loading";
 import { getAnswers, getOldestAnswer, getRealTimeAnswers } from "libs/answer";
 import { Answer } from "types/firebase";
 
