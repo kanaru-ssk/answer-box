@@ -40,14 +40,14 @@ const Home: NextPage = () => {
         <meta property="og:title" content="回答箱" />
         <meta
           property="og:description"
-          content="匿名で回答を送れちゃう！某質問系サービスのパクリサービスです！"
+          content="質問を作成して匿名で回答を募集しよう!"
         />
         <meta name="twitter:card" content="summary_large_image" />
 
         <title>回答箱</title>
         <meta
           name="description"
-          content="匿名で回答を送れちゃう！某質問系サービスのパクリサービスです！"
+          content="質問を作成して匿名で回答を募集しよう!"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
