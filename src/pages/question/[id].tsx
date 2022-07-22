@@ -163,7 +163,7 @@ const Question = ({ questionSsr }: Props) => {
                 value={newAnswer}
                 onChange={setNewAnswer}
               />
-              <ButtonSubmit text="回答する" isLoading={false} />
+              <ButtonSubmit text="回答する" />
             </form>
           </section>
         )}

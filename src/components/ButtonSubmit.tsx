@@ -2,7 +2,7 @@ import Loading from "components/Loading";
 
 type Props = {
   text: string;
-  isLoading: boolean;
+  isLoading?: boolean;
 };
 
 const ButtonSubmit = ({ text, isLoading }: Props) => {
