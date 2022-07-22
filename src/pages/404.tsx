@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import type { NextPage } from "next";
 
-const NotFound: NextPage = () => {
+const Custom404: NextPage = () => {
   return (
     <>
       <Head>
@@ -16,7 +16,7 @@ const NotFound: NextPage = () => {
           申し訳ございません。お探しのページは見つかりませんでした。
         </p>
         <Link href="/">
-          <a className="text-blue underline sm:hover:text-dark-gray">
+          <a className="text-main-color underline sm:hover:text-dark-gray">
             トップページに戻る
           </a>
         </Link>
@@ -25,4 +25,4 @@ const NotFound: NextPage = () => {
   );
 };
 
-export default NotFound;
+export default Custom404;

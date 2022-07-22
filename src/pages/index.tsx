@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 
 import type { NextPage } from "next";
 
-import SubmitButton from "components/SubmitButton";
+import ButtonSubmit from "components/ButtonSubmit";
 import TextArea from "components/TextArea";
 import { useAuth } from "hooks/auth";
 import { createQuestion } from "libs/question";
@@ -14,9 +14,11 @@ const Home: NextPage = () => {
   const router = useRouter();
   const user = useAuth();
   const [newQuestion, setNewQuestion] = useState<string>("");
+  const [isCreating, setIsCreating] = useState<boolean>(false);
 
   const onSubmitHundler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsCreating(true);
     if (user && newQuestion) {
       createQuestion(newQuestion).then((result) => {
         if (result) router.push("question/" + result);
@@ -59,7 +61,7 @@ const Home: NextPage = () => {
             value={newQuestion}
             onChange={setNewQuestion}
           />
-          <SubmitButton text="質問作成" />
+          <ButtonSubmit text="質問作成" isLoading={isCreating} />
         </form>
       </main>
     </div>
