@@ -50,7 +50,7 @@ const AnswerList = () => {
     <InfiniteScroll
       loadMore={onMoreLoad}
       hasMore={hasMore}
-      loader={<Loading />}
+      loader={<Loading key="loading" />}
     >
       <ul>
         {newAnswers.map((answer) => {
