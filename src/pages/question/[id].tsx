@@ -9,7 +9,6 @@ import type { Question } from "types/firebase";
 import Answers from "components/AnswerList";
 import Button from "components/Buttom";
 import Loading from "components/Loading";
-import NotFound from "components/NotFound";
 import SubmitButton from "components/SubmitButton";
 import TextArea from "components/TextArea";
 import { useAuth } from "hooks/auth";
