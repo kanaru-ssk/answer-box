@@ -20,8 +20,10 @@ export const createQuestion = async (question: string) => {
 };
 
 // 質問取得
-export const getQuestion = async (questionId: string | undefined) => {
-  if (!questionId) return null;
+export const getQuestion = async (
+  questionId: string | string[] | undefined
+) => {
+  if (typeof questionId !== "string") return null;
 
   const { getFirestore, getDoc, doc } = await import("firebase/firestore");
   const db = getFirestore();

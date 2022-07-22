@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import type { NextPage } from "next";
+import type { GetServerSideProps } from "next";
 import type { Question } from "types/firebase";
 
 import Answers from "components/AnswerList";
@@ -16,7 +16,11 @@ import { useAuth } from "hooks/auth";
 import { createAnswer } from "libs/answer";
 import { getQuestion } from "libs/question";
 
-const Question: NextPage = () => {
+type Props = {
+  questionSsr: Question | null;
+};
+
+const Question = ({ questionSsr }: Props) => {
   const user = useAuth();
   const router = useRouter();
   // パスパラメータから値を取得
@@ -27,7 +31,7 @@ const Question: NextPage = () => {
   const [isNotFound, setIsNotFound] = useState<boolean>(false);
 
   useEffect(() => {
-    if (typeof id === "string") {
+    if (!questionSsr) {
       getQuestion(id).then((result) => {
         if (result) {
           setQuestion(result);
@@ -35,8 +39,10 @@ const Question: NextPage = () => {
           setIsNotFound(true);
         }
       });
+    } else {
+      setQuestion(questionSsr);
     }
-  }, [id]);
+  }, [id, questionSsr]);
 
   const onSubmitHundler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -84,17 +90,36 @@ const Question: NextPage = () => {
             property="og:image"
             content={process.env.NEXT_PUBLIC_URL + "/img/ogp.png"}
           />
-          <meta property="og:title" content="回答箱" />
+          <meta
+            property="og:title"
+            content={
+              question?.question
+                ? "回答箱 | 「" + question?.question + "」"
+                : "回答箱"
+            }
+          />
           <meta
             property="og:description"
-            content="匿名で回答を送れちゃう！某質問系サービスのパクリサービスです！"
+            content={
+              "質問を作成して匿名で回答を募集しよう!" + question?.question
+                ? " 質問 : 「" + question?.question + "」"
+                : ""
+            }
           />
           <meta name="twitter:card" content="summary_large_image" />
 
-          <title>回答箱</title>
+          <title>
+            {question?.question
+              ? "回答箱 | 「" + question?.question + "」"
+              : "回答箱"}
+          </title>
           <meta
             name="description"
-            content="匿名で回答を送れちゃう！某質問系サービスのパクリサービスです！質問"
+            content={
+              "質問を作成して匿名で回答を募集しよう!" + question?.question
+                ? " 質問 : 「" + question?.question + "」"
+                : ""
+            }
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>
@@ -156,3 +181,16 @@ const Question: NextPage = () => {
 };
 
 export default Question;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { getQuestionSsr } = await import("libs/questionSsr");
+  const question = await getQuestionSsr(context.params?.id);
+
+  const props: Props = {
+    questionSsr: question,
+  };
+
+  return {
+    props: props,
+  };
+};
