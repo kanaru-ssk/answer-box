@@ -60,6 +60,9 @@ const AnswerList = () => {
           return <AnswerItem key={answer.docId} answer={answer.answer} />;
         })}
       </ul>
+      {newAnswers.length === 0 && oldAnswers.length === 0 && (
+        <div className="ml-4 text-dark-gray">まだ回答がありません</div>
+      )}
     </InfiniteScroll>
   );
 };
