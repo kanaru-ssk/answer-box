@@ -8,8 +8,8 @@ import type { Question } from "types/firebase";
 
 import Answers from "components/AnswerList";
 import Button from "components/Buttom";
+import ButtonSubmit from "components/ButtonSubmit";
 import Loading from "components/Loading";
-import SubmitButton from "components/SubmitButton";
 import TextArea from "components/TextArea";
 import { useAuth } from "hooks/auth";
 import { createAnswer } from "libs/answer";
@@ -163,7 +163,7 @@ const Question = ({ questionSsr }: Props) => {
                 value={newAnswer}
                 onChange={setNewAnswer}
               />
-              <SubmitButton text="回答する" />
+              <ButtonSubmit text="回答する" isLoading={false} />
             </form>
           </section>
         )}
