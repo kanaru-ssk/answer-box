@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import type { NextPage } from "next";
 
 import ButtonSubmit from "components/ButtonSubmit";
+import Footer from "components/Footer";
 import TextArea from "components/TextArea";
 import { useAuth } from "hooks/auth";
 import { createQuestion } from "libs/question";
@@ -64,6 +65,8 @@ const Home: NextPage = () => {
           <ButtonSubmit text="質問作成" isLoading={isCreating} />
         </form>
       </main>
+
+      <Footer />
     </div>
   );
 };

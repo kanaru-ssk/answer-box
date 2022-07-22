@@ -31,7 +31,6 @@ const Question = ({ questionSsr }: Props) => {
 
   const user = useAuth();
   const router = useRouter();
-  // パスパラメータから値を取得
   const { id } = router.query;
   const [question, setQuestion] = useState<Question | null>(null);
   const [newAnswer, setNewAnswer] = useState<string>("");
