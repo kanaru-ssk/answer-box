@@ -63,7 +63,7 @@ export const getOldestAnswer = async (
 ): Promise<Answer | null> => {
   if (questionId === null) return null;
 
-  const { getFirestore, collection, getDocs, query, where, orderBy, limit } =
+  const { getFirestore, collection, getDocs, query, orderBy, limit } =
     await import("firebase/firestore");
 
   const db = getFirestore();

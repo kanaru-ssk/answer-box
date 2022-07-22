@@ -5,8 +5,8 @@ import { useRouter } from "next/router";
 import InfiniteScroll from "react-infinite-scroller";
 
 import AnswerItem from "./AnswerItem";
-import Loading from "./Loading";
 
+import Loading from "components/common/Loading";
 import { getAnswers, getOldestAnswer, getRealTimeAnswers } from "libs/answer";
 import { Answer } from "types/firebase";
 
@@ -60,6 +60,9 @@ const AnswerList = () => {
           return <AnswerItem key={answer.docId} answer={answer.answer} />;
         })}
       </ul>
+      {newAnswers.length === 0 && oldAnswers.length === 0 && (
+        <div className="ml-4 text-dark-gray">まだ回答がありません</div>
+      )}
     </InfiniteScroll>
   );
 };
