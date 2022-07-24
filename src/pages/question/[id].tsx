@@ -59,7 +59,7 @@ const Question = ({ questionSsr }: Props) => {
       question?.question +
       "%0A%0A%20%23" +
       hashtag +
-      "%20%0A";
+      "%20";
 
     location.href = URL;
   };
