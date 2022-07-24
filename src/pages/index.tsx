@@ -60,7 +60,7 @@ const Home: NextPage = () => {
               placeholder="質問を入力して下さい。"
               value={newQuestion}
               onChange={(e) => setNewQuestion(e.target.value)}
-              className="absolute top-0 h-full w-full resize-none overflow-visible rounded-3xl border-2 border-gray px-5 py-12 leading-5"
+              className="absolute top-0 h-full w-full resize-none overflow-visible rounded-3xl border-2 border-gray px-5 py-12 text-center leading-5"
             ></textarea>
           </div>
           <div className="py-4 text-center">
