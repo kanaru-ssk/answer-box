@@ -5,6 +5,7 @@ import type { NextPage } from "next";
 import Footer from "components/common/Footer";
 import Introduction from "components/common/Introduction";
 import QuestionForm from "components/top/QuestionForm";
+import { title, description } from "constants/common";
 
 const Home: NextPage = () => {
   return (
@@ -12,17 +13,11 @@ const Home: NextPage = () => {
       <Head>
         <link rel="canonical" href={process.env.NEXT_PUBLIC_URL} />
 
-        <meta property="og:title" content="回答箱" />
-        <meta
-          property="og:description"
-          content="質問を作成して匿名で回答を募集しよう!"
-        />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
 
-        <title>回答箱</title>
-        <meta
-          name="description"
-          content="質問を作成して匿名で回答を募集しよう!"
-        />
+        <title>{title}</title>
+        <meta name="description" content={description} />
       </Head>
 
       <main>

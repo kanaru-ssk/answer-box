@@ -4,12 +4,13 @@ import Link from "next/link";
 import type { NextPage } from "next";
 
 import Footer from "components/common/Footer";
+import { title } from "constants/common";
 
 const Custom404: NextPage = () => {
   return (
     <>
       <Head>
-        <title>404 | 回答箱</title>
+        <title>404 | {title}</title>
       </Head>
 
       <main>

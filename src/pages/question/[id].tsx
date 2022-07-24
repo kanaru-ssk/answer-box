@@ -12,6 +12,7 @@ import Loading from "components/common/Loading";
 import AnswerForm from "components/question/AnswerForm";
 import Answers from "components/question/AnswerList";
 import Button from "components/question/Buttom";
+import { title, description } from "constants/common";
 import { getQuestion } from "libs/question";
 
 type Props = {
@@ -19,14 +20,12 @@ type Props = {
 };
 
 const Question = ({ questionSsr }: Props) => {
-  const title = questionSsr?.question
-    ? "回答箱 | 「" + questionSsr.question + "」"
-    : "回答箱";
-  const description = questionSsr?.question
-    ? "質問を作成して匿名で回答を募集しよう! 質問 : 「" +
-      questionSsr.question +
-      "」"
-    : "質問を作成して匿名で回答を募集しよう!";
+  const ssrTitle =
+    title + (questionSsr?.question && " | 「" + questionSsr.question + "」");
+  const ssrDescription =
+    description +
+    (questionSsr?.question &&
+      description + " 質問 : 「" + questionSsr.question + "」");
 
   const router = useRouter();
   const { id } = router.query;
@@ -79,11 +78,11 @@ const Question = ({ questionSsr }: Props) => {
           href={process.env.NEXT_PUBLIC_URL + "/question/" + questionSsr?.docId}
         />
 
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
+        <meta property="og:title" content={ssrTitle} />
+        <meta property="og:description" content={ssrDescription} />
 
-        <title>{title}</title>
-        <meta name="description" content={description} />
+        <title>{ssrTitle}</title>
+        <meta name="description" content={ssrDescription} />
       </Head>
 
       <main className="px-4">
