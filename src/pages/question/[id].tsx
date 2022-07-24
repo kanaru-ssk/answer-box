@@ -6,11 +6,13 @@ import { useRouter } from "next/router";
 import type { GetServerSideProps } from "next";
 import type { Question } from "types/firebase";
 
+import Footer from "components/common/Footer";
 import Introduction from "components/common/Introduction";
 import Loading from "components/common/Loading";
 import AnswerForm from "components/question/AnswerForm";
 import Answers from "components/question/AnswerList";
 import Button from "components/question/Buttom";
+import { title, description } from "constants/common";
 import { getQuestion } from "libs/question";
 
 type Props = {
@@ -18,14 +20,12 @@ type Props = {
 };
 
 const Question = ({ questionSsr }: Props) => {
-  const title = questionSsr?.question
-    ? "回答箱 | 「" + questionSsr.question + "」"
-    : "回答箱";
-  const description = questionSsr?.question
-    ? "質問を作成して匿名で回答を募集しよう! 質問 : 「" +
-      questionSsr.question +
-      "」"
-    : "質問を作成して匿名で回答を募集しよう!";
+  const ssrTitle =
+    title + (questionSsr?.question && " | 「" + questionSsr.question + "」");
+  const ssrDescription =
+    description +
+    (questionSsr?.question &&
+      description + " 質問 : 「" + questionSsr.question + "」");
 
   const router = useRouter();
   const { id } = router.query;
@@ -37,6 +37,7 @@ const Question = ({ questionSsr }: Props) => {
     if (!questionSsr) {
       getQuestion(id).then((result) => {
         if (result) {
+          setIsNotFound(false);
           setQuestion(result);
         } else {
           setIsNotFound(true);
@@ -77,11 +78,11 @@ const Question = ({ questionSsr }: Props) => {
           href={process.env.NEXT_PUBLIC_URL + "/question/" + questionSsr?.docId}
         />
 
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
+        <meta property="og:title" content={ssrTitle} />
+        <meta property="og:description" content={ssrDescription} />
 
-        <title>{title}</title>
-        <meta name="description" content={description} />
+        <title>{ssrTitle}</title>
+        <meta name="description" content={ssrDescription} />
       </Head>
 
       <main className="px-4">
@@ -97,33 +98,28 @@ const Question = ({ questionSsr }: Props) => {
             )}
           </div>
 
-          {!isNotFound && (
-            <>
-              <h3 className="text-center">質問のリンクを共有しよう！</h3>
-              <div className="flex justify-center gap-4 ">
-                <Button
-                  text={isCopy ? "copied !" : "リンクをコピー"}
-                  color="gray"
-                  onClick={copyLink}
-                />
-                <Button
-                  text="Tweet"
-                  color="twitter-color"
-                  onClick={shareOnTwitter}
-                />
-              </div>
-            </>
-          )}
+          <h3 className="text-center">質問のリンクを共有しよう！</h3>
+          <div className="flex justify-center gap-4 ">
+            <Button
+              text={isCopy ? "copied !" : "リンクをコピー"}
+              color="gray"
+              onClick={copyLink}
+            />
+            <Button
+              text="Tweet"
+              color="twitter-color"
+              onClick={shareOnTwitter}
+            />
+          </div>
         </section>
 
-        {!isNotFound && (
-          <section>
-            <h2>回答一覧</h2>
-            <Answers />
-          </section>
-        )}
+        <section>
+          <h2>回答一覧</h2>
+          <Answers />
+        </section>
 
         <Introduction />
+
         <section className="text-center">
           <p className="pb-4">質問を作成して匿名の回答を募集しましょう!</p>
           <Button
@@ -137,6 +133,9 @@ const Question = ({ questionSsr }: Props) => {
       </main>
 
       {!isNotFound && <AnswerForm question={question} />}
+
+      <Footer />
+      <div className="h-16"></div>
     </>
   );
 };
