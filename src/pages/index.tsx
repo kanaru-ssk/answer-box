@@ -31,25 +31,17 @@ const Home: NextPage = () => {
       <Head>
         <link rel="canonical" href={process.env.NEXT_PUBLIC_URL} />
 
-        <meta property="og:url" content={process.env.NEXT_PUBLIC_URL} />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content={process.env.NEXT_PUBLIC_URL + "/img/ogp.png"}
-        />
         <meta property="og:title" content="回答箱" />
         <meta
           property="og:description"
           content="質問を作成して匿名で回答を募集しよう!"
         />
-        <meta name="twitter:card" content="summary_large_image" />
 
         <title>回答箱</title>
         <meta
           name="description"
           content="質問を作成して匿名で回答を募集しよう!"
         />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>

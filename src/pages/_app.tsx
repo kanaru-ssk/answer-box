@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import "styles/globals.css";
 import type { AppProps } from "next/app";
 
@@ -9,10 +11,27 @@ function MyApp({ Component, pageProps }: AppProps) {
   initFirebase();
 
   return (
-    <AuthProvider>
+    <>
+      <Head>
+        <link rel="icon" href="/favicon.svg" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="theme-color" content="#232C93" />
+
+        <meta property="og:url" content={process.env.NEXT_PUBLIC_URL} />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content={process.env.NEXT_PUBLIC_URL + "/img/ogp.png"}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
+
       <Header />
-      <Component {...pageProps} />
-    </AuthProvider>
+
+      <AuthProvider>
+        <Component {...pageProps} />
+      </AuthProvider>
+    </>
   );
 }
 

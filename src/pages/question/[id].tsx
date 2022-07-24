@@ -76,19 +76,11 @@ const Question = ({ questionSsr }: Props) => {
           href={process.env.NEXT_PUBLIC_URL + "/question/" + questionSsr?.docId}
         />
 
-        <meta property="og:url" content={process.env.NEXT_PUBLIC_URL} />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content={process.env.NEXT_PUBLIC_URL + "/img/ogp.png"}
-        />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta name="twitter:card" content="summary_large_image" />
 
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="px-4">
