@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import type { NextPage } from "next";
 
 import Footer from "components/Footer";
+import Introduction from "components/common/Introduction";
 import Loading from "components/common/Loading";
 import { useAuth } from "hooks/auth";
 import { createQuestion } from "libs/question";
@@ -31,25 +32,17 @@ const Home: NextPage = () => {
       <Head>
         <link rel="canonical" href={process.env.NEXT_PUBLIC_URL} />
 
-        <meta property="og:url" content={process.env.NEXT_PUBLIC_URL} />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content={process.env.NEXT_PUBLIC_URL + "/img/ogp.png"}
-        />
         <meta property="og:title" content="回答箱" />
         <meta
           property="og:description"
           content="質問を作成して匿名で回答を募集しよう!"
         />
-        <meta name="twitter:card" content="summary_large_image" />
 
         <title>回答箱</title>
         <meta
           name="description"
           content="質問を作成して匿名で回答を募集しよう!"
         />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
@@ -67,7 +60,7 @@ const Home: NextPage = () => {
               placeholder="質問を入力して下さい。"
               value={newQuestion}
               onChange={(e) => setNewQuestion(e.target.value)}
-              className="absolute top-0 h-full w-full resize-none overflow-visible rounded-3xl border-2 border-gray px-5 py-12 leading-5"
+              className="absolute top-0 h-full w-full resize-none overflow-visible rounded-3xl border-2 border-gray px-5 py-12 text-center leading-5"
             ></textarea>
           </div>
           <div className="py-4 text-center">
@@ -85,6 +78,8 @@ const Home: NextPage = () => {
             )}
           </div>
         </form>
+
+        <Introduction />
       </main>
 
       <Footer />

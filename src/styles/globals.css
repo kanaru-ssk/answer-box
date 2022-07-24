@@ -16,9 +16,9 @@
     @apply my-8 border-b-2 border-gray py-4 text-2xl font-bold;
   }
   h2 {
-    @apply m-4 text-xl;
+    @apply my-4 text-xl font-bold;
   }
   h3 {
-    @apply m-4;
+    @apply my-4;
   }
 }
