@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import type { NextPage } from "next";
 
 import Footer from "components/Footer";
+import Introduction from "components/common/Introduction";
 import Loading from "components/common/Loading";
 import { useAuth } from "hooks/auth";
 import { createQuestion } from "libs/question";
@@ -77,6 +78,8 @@ const Home: NextPage = () => {
             )}
           </div>
         </form>
+
+        <Introduction />
       </main>
 
       <Footer />

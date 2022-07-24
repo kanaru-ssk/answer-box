@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import type { GetServerSideProps } from "next";
 import type { Question } from "types/firebase";
 
+import Introduction from "components/common/Introduction";
 import Loading from "components/common/Loading";
 import AnswerForm from "components/question/AnswerForm";
 import Answers from "components/question/AnswerList";
@@ -122,6 +123,7 @@ const Question = ({ questionSsr }: Props) => {
           </section>
         )}
 
+        <Introduction />
         <section className="text-center">
           <p className="pb-4">質問を作成して匿名の回答を募集しましょう!</p>
           <Button
