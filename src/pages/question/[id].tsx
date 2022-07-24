@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import type { GetServerSideProps } from "next";
 import type { Question } from "types/firebase";
 
+import Footer from "components/common/Footer";
 import Introduction from "components/common/Introduction";
 import Loading from "components/common/Loading";
 import AnswerForm from "components/question/AnswerForm";
@@ -137,6 +138,9 @@ const Question = ({ questionSsr }: Props) => {
       </main>
 
       {!isNotFound && <AnswerForm question={question} />}
+
+      <Footer />
+      <div className="h-16"></div>
     </>
   );
 };

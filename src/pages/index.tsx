@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 
 import type { NextPage } from "next";
 
-import Footer from "components/Footer";
+import Footer from "components/common/Footer";
 import Introduction from "components/common/Introduction";
 import Loading from "components/common/Loading";
 import { useAuth } from "hooks/auth";

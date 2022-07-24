@@ -3,6 +3,8 @@ import Link from "next/link";
 
 import type { NextPage } from "next";
 
+import Footer from "components/common/Footer";
+
 const Custom404: NextPage = () => {
   return (
     <>
@@ -21,6 +23,10 @@ const Custom404: NextPage = () => {
           </a>
         </Link>
       </main>
+
+      <div className="fixed bottom-0 w-full">
+        <Footer />
+      </div>
     </>
   );
 };
